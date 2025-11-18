@@ -25,13 +25,14 @@ class MCP3021:
         return self.dynamic_range/1024*var
     
 if __name__ == "__main__":
+    
+    mcp = MCP3021(1)
+
     try:
-        mcp = MCP3021(5.12)
-        
         while True:
             voltage = mcp.get_voltage()
             print(voltage)
-            time.sleep(0.25)
+            time.sleep(1)
 
     finally:
         mcp.deinit()
